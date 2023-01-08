@@ -67,3 +67,10 @@ API 데이터를 가져오는 방법(`fetching`)과 React-Query 방식으로 변
 ✓ react-router-dom의 이동 컴포넌트, to속성으로 이동할 경로(path)를 설정
 </br>
 ✓ `리렌더링(새로고침)없이` 이동하는 특징(↔ a태그)
+
+## `API Data`
+
+### useEffect Hook에서 async await을 사용하여 API호출
+
+-   useEffect : 컴포넌트 렌더링될 때 가장 먼저 실행되는 React hook
+-   async & await : 비동기 처리 함수(async로 요청하고, await으로 결과(fetch)를 받는다)
