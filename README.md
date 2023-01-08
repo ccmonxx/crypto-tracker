@@ -26,6 +26,12 @@ API 데이터를 가져오는 방법(`fetching`)과 React-Query 방식으로 변
 
 ✓ `URL`을 설정할 수 있는 Route의 속성
 
+### UseParams
+
+✓ 현재 경로(path)를 확인할 수 있는 기능
+</br>
+✓ Route 컴포넌트의 path에 지정한 이름과 동일한 이름으로 호출
+
 <!-- Style -->
 
 ## `Styles`
@@ -51,3 +57,13 @@ API 데이터를 가져오는 방법(`fetching`)과 React-Query 방식으로 변
 ✓ Root : HelmetProvider → Helmet
 </br>
 ✓ async 모듈로부터 import 할 것(생명주기 오류방지 - componentWillMount)
+
+<!-- Data -->
+
+## `Internal Data`
+
+### Link
+
+✓ react-router-dom의 이동 컴포넌트, to속성으로 이동할 경로(path)를 설정
+</br>
+✓ `리렌더링(새로고침)없이` 이동하는 특징(↔ a태그)
