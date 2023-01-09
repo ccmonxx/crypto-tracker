@@ -29,7 +29,8 @@ const Coin = styled.li`
 	color: ${(props) => props.theme.bgColor};
 
 	a {
-		display: block;
+		display: flex;
+		align-items: center;
 		padding: 20px;
 		transition: color 0.2s ease-in;
 	}
@@ -45,7 +46,12 @@ const Loader = styled.div`
 	text-align: center;
 `;
 
-// 2. 생성한 상태에 대한 타입을 정의
+const Img = styled.img`
+	margin-right: 10px;
+	width: 35px;
+	height: 35px;
+`;
+
 interface ICoins {
 	id: string;
 	name: string;
@@ -57,11 +63,9 @@ interface ICoins {
 }
 
 function Coins() {
-	// 1. API 데이터를 담을 배열 타입의 상태를 생성
 	const [coins, setCoins] = useState<ICoins[]>([]);
 	const [loading, setLoading] = useState(true);
 
-	// 3. useEffect + 비동기처리
 	useEffect(() => {
 		(async () => {
 			const response = await fetch("https://api.coinpaprika.com/v1/coins");
@@ -82,7 +86,19 @@ function Coins() {
 				<ul>
 					{coins.map((coin) => (
 						<Coin key={coin.id}>
-							<Link to={`/${coin.id}`}>{coin.name}</Link>
+							{/* 1. to속성 중 state을 통해 데이터를 지정한 경로의 컴포넌트로 전달 */}
+							<Link
+								to={{
+									pathname: `/${coin.id}`,
+									state: { name: coin.name },
+								}}
+							>
+								<Img
+									src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+									alt=""
+								/>
+								{coin.name}
+							</Link>
 						</Coin>
 					))}
 				</ul>
