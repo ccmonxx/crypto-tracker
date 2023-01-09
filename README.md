@@ -79,3 +79,33 @@ API 데이터를 가져오는 방법(`fetching`)과 React-Query 방식으로 변
 ### useLocation
 
 ✓ Link(to→state)를 통해 전달된 데이터 확인할 수 있는 hook
+
+## `Coin Data & Type`
+
+### Async - Await 한줄 표기
+
+```
+▼ Before
+const response = await fetch(`URL..`);
+const json = await response.json();
+
+🔻 After
+const infoData = await (await fetch(`URL...`)).json();
+```
+
+### interface : 객체형태의 coin 데이터 타입하기
+
+1. 데이터 확인(콘솔)
+2. JSON 객체 정보 복사(전역변수 저장 후 추출)
+    - 키 추출 : Object.keys(temp1).join()
+    - 값 추출 : Object.values(temp1).map(v => typeof v)
+3. 데이터 타입하기
+
+| 단축키          | 기능                               |
+| --------------- | ---------------------------------- |
+| cmd + D         | 동일한 문자열을 선택               |
+| cmd + shift + → | 선택한 문자열의 우측 끝까지 선택   |
+| opt + shitf + I | 선택한 문자열의 우측 끝으로 포커싱 |
+
+✓ JSON 데이터를 타입스크립트 타입으로 변환시켜주는 사이트
+(https://app.quicktype.io/?l=ts)
